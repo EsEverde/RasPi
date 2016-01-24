@@ -41,8 +41,8 @@ else:
 
 while True: #Main loop
 
-    #weather_com_result = pywapi.get_weather_from_weather_com('GMXX0053') #Read weather in Heidelberg
-    weather_com_result = pywapi.get_weather_from_weather_com('WAXX0004')  # ... Windhoek
+    weather_com_result = pywapi.get_weather_from_weather_com('GMXX0053') #Read weather in Heidelberg
+    #weather_com_result = pywapi.get_weather_from_weather_com('WAXX0004')  # ... Windhoek
     #weather_com_result = pywapi.get_weather_from_weather_com('RSXX0122') # ... Yakutsk
 
     Temp=int(weather_com_result['current_conditions']['temperature'])   #Read out Temp
@@ -50,8 +50,8 @@ while True: #Main loop
 
     Timeout = time.time() + 60*TimeToUpdate
 
-    Wind=30
-    Calm=4
+    Wind=0
+    Calm=0
     
     for i in range(0,Strips): #Init Map
         for j in range(0,numLEDs):
@@ -62,7 +62,7 @@ while True: #Main loop
     if Temp>=10 and Temp<34: # Define colors
         MyColors=[(100+(Temp-10)*6,150-(Temp-10)*4,50),(155+(Temp-10),155,150),(60+Temp-10,60,50)]
     elif Temp<10:
-        MyColors=[(100+(Temp-10)*4,150+(Temp-10)*4,50-(Temp-10)*10),(155,155+(Temp-10),150-(Temp-10)),(60,60-(Temp-10),50-(Temp-10))]
+        MyColors=[(100+(Temp-10)*4,150+(Temp-10)*2,50-(Temp-10)*10),(155,155+(Temp-10),150-(Temp-10)),(60,60-(Temp-10)//2,50-(Temp-10))]
     elif Temp>=35:
         MyColors=[(255,0,0),(200,150,150),(80,50,50)]
     
