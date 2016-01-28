@@ -18,7 +18,7 @@ client = opc.Client('localhost:7890')
 while True: #Main loop
     
     #else ... Map[i][j]=Map[i][j] # don't move with Calm/(4+Wind+Calm)
-    for k in range(0,255)
+    for k in range(0,255):
         for i in range(0,Strips):
             pixels=[ (255,255,255) ] * (64 * Strips)
             for j in range(0,numLEDs):
