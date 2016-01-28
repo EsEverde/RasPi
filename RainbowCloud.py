@@ -19,8 +19,9 @@ while True: #Main loop
     
     #else ... Map[i][j]=Map[i][j] # don't move with Calm/(4+Wind+Calm)
     for k in range(0,255):
+        pixels=[ (255,255,255) ] * (64 * Strips)
+
         for i in range(0,Strips):
-            pixels=[ (255,255,255) ] * (64 * Strips)
             for j in range(0,numLEDs):
                     
                 Color1=colorsys.hsv_to_rgb(k/255,1,1-1/Strips*i)
@@ -31,8 +32,8 @@ while True: #Main loop
 
                 pixels[i*MaxLED+j]= Color1
 
-            client.put_pixels(pixels)
-            time.sleep(0.05)
+        client.put_pixels(pixels)
+        time.sleep(0.05)
 
             
                     
