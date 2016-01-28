@@ -18,21 +18,21 @@ client = opc.Client('localhost:7890')
 while True: #Main loop
     
     #else ... Map[i][j]=Map[i][j] # don't move with Calm/(4+Wind+Calm)
-    
-    for i in range(0,Strips):
-        pixels=[ (255,255,255) ] * (64 * Strips)
-        for j in range(0,numLEDs):
+    for k in range(0,255)
+        for i in range(0,Strips):
+            pixels=[ (255,255,255) ] * (64 * Strips)
+            for j in range(0,numLEDs):
                     
-            Color1=colorsys.hsv_to_rgb(1/numLEDs*j,1,1-1/Strips*i)
-            Color1=[x*255 for x in Color1]
+                Color1=colorsys.hsv_to_rgb(k/255,1,1-1/Strips*i)
+                Color1=[x*255 for x in Color1]
 
                     #Color2=colorsys.hsv_to_rgb(1/numLEDs*(j+15)%numLEDs,1,1/10*k*2)
                     #Color2=[x*255 for x in Color2]
 
-            pixels[i*MaxLED+j]= Color1
+                pixels[i*MaxLED+j]= Color1
 
-        client.put_pixels(pixels)
-        time.sleep(0.05)
+            client.put_pixels(pixels)
+            time.sleep(0.05)
 
             
                     
