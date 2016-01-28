@@ -3,6 +3,7 @@ import string
 import pywapi
 import opc
 import time
+import colorsys
 from random import randint
 from datetime import datetime
 
@@ -50,21 +51,30 @@ while True: #Main loop
 
     Timeout = time.time() + 60*TimeToUpdate
 
-    Wind=0
+    Wind=5
     Calm=0
     
     for i in range(0,Strips): #Init Map
         for j in range(0,numLEDs):
             Map[i][j]=randint(1,3)
-    
- 
-    
-    if Temp>=10 and Temp<34: # Define colors
-        MyColors=[(100+(Temp-10)*6,150-(Temp-10)*4,50),(155+(Temp-10),155,150),(60+Temp-10,60,50)]
-    elif Temp<10:
-        MyColors=[(100+(Temp-10)*4,150+(Temp-10)*2,50-(Temp-10)*10),(155,155+(Temp-10),150-(Temp-10)),(60,60-(Temp-10)//2,50-(Temp-10))]
-    elif Temp>=35:
-        MyColors=[(255,0,0),(200,150,150),(80,50,50)]
+    Color1=colorsys.hsv_to_rgb(0.2,1,1)
+    print Color1
+    Color1=[x*255 for x in Color1]
+    Color2=colorsys.hsv_to_rgb(1-(Temp+35)/50,0.5,0.5)
+    print Color2
+    Color2=[x*255 for x in Color2]
+    Color3=colorsys.hsv_to_rgb(1-(Temp+35)/50,0.4,0.2)
+    print Color3
+    Color3=[x*255 for x in Color3]
+
+    MyColors=[Color1,Color2,Color3]
+
+    #   if Temp>=10 and Temp<34: # Define colors
+#   MyColors=[(100+(Temp-10)*6,150-(Temp-10)*4,50),(155+(Temp-10),100+abs(Temp-10)*4,0),(60+Temp-10,60,50)]
+#   elif Temp<10:
+#       MyColors=[(100+(Temp-10)*4,100+(Temp-10)*2,50-(Temp-10)*10),(100,100+abs(Temp-10)*2,150-(Temp-10)),(60,60-(Temp-10)//2,50-(Temp-10))]
+#   elif Temp>=35:
+#       MyColors=[(255,0,0),(200,150,0),(80,80,0)]
     
     while time.time() < Timeout: # For the next 15 min
         
@@ -83,14 +93,17 @@ while True: #Main loop
                     MapAlt[i][j-1]=Map[i][j]
                 elif Switch>=3 and Switch<=3+Wind: # move upwind with 1/(4+Wind+Calm) + Wind/(4+Wind+Calm)
                     MapAlt[i][j+1]=Map[i][j]
+
+
                 #else ... Map[i][j]=Map[i][j] # don't move with Calm/(4+Wind+Calm)
         Map=MapAlt
         for i in range(0,Strips):
-            for j in range(0,numLEDs):
-                pixels[(i)*MaxLED+j] = MyColors[Map[i][j]-1]
-            
+            for j in range(0,5):
+                pixels[(i+randint(1,4))%Strips*MaxLED+randint(0,29)] = MyColors[Map[i][j]-1]
+
+
         client.put_pixels(pixels)
-        time.sleep(0.5)
+        time.sleep(1)
 
             
                     
