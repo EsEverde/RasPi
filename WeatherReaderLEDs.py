@@ -58,13 +58,10 @@ while True: #Main loop
         for j in range(0,numLEDs):
             Map[i][j]=randint(1,3)
     Color1=colorsys.hsv_to_rgb(0.2,1,1)
-    print Color1
     Color1=[x*255 for x in Color1]
     Color2=colorsys.hsv_to_rgb(1-(Temp+35)/50,0.5,0.5)
-    print Color2
     Color2=[x*255 for x in Color2]
     Color3=colorsys.hsv_to_rgb(1-(Temp+35)/50,0.4,0.2)
-    print Color3
     Color3=[x*255 for x in Color3]
 
     MyColors=[Color1,Color2,Color3]
