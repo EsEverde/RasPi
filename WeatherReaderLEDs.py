@@ -57,7 +57,7 @@ while True: #Main loop
     for i in range(0,Strips): #Init Map
         for j in range(0,numLEDs):
             Map[i][j]=randint(1,3)
-    Color1=colorsys.hsv_to_rgb(0.2,1,1)
+    Color1=colorsys.hsv_to_rgb(Temp+35,1,1)
     Color1=[x*255 for x in Color1]
     Color2=colorsys.hsv_to_rgb(1-(Temp+35)/50,0.5,0.5)
     Color2=[x*255 for x in Color2]
