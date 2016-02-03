@@ -37,5 +37,5 @@ while True: #Main loop
                 pixels[i*MaxLED+j]= Color1
 
         client.put_pixels(pixels)
-        time.sleep(0.005)
+        time.sleep(1.275/(RangeMax-RangeMin))
 
