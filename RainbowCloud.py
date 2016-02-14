@@ -22,7 +22,7 @@ RangeMax=input("RangeMax:")
 while True: #Main loop
     
     #else ... Map[i][j]=Map[i][j] # don't move with Calm/(4+Wind+Calm)
-    for k in 255:
+    for k in range(1,255):
         pixels=[ (255,255,255) ] * (64 * Strips)
 
         for i in range(0,Strips):
