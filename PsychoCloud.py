@@ -18,7 +18,7 @@ pixels=[ (255,250,240) ] * (64 * Strips)
 while True: #Main loop
     
     
-    for j in range(0,15-1):
+    for j in range(0,numLEDs-1):
         for i in range(0,Strips):
 
             #Color1=colorsys.hsv_to_rgb(randint(0,255)/255,1,1)
@@ -26,9 +26,8 @@ while True: #Main loop
             Color1=[x*255 for x in Color1]
 
             pixels[i*MaxLED+j]= Color1
-            pixels[i*MaxLED+j*2%numLEDs]= Color1
 
-        client.put_pixels(pixels)
+    client.put_pixels(pixels)
 #time.sleep(0.1)
 
             
