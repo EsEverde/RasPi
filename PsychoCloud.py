@@ -17,8 +17,9 @@ pixels=[ (255,250,240) ] * (64 * Strips)
 
 while True: #Main loop
     
-    for i in range(0,Strips):
-        for j in range(0,numLEDs-1):
+    
+    for j in range(0,numLEDs-1):
+        for i in range(0,Strips):
 
             #Color1=colorsys.hsv_to_rgb(randint(0,255)/255,1,1)
             Color1=colorsys.hsv_to_rgb(randint(0,255)/255,randint(0,255)/255,randint(0,255)/255)
