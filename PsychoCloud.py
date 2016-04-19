@@ -21,6 +21,8 @@ while True: #Main loop
         for j in range(0,numLEDs-1):
 
             Color1=colorsys.hsv_to_rgb(randint(0,255)/255,1,1)
+            Color1=[x*255 for x in Color1]
+
             pixels[i*MaxLED+j]= Color1
 
     client.put_pixels(pixels)
