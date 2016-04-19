@@ -5,5 +5,5 @@ The hardware server 'fcserver-rpi' and the open pixel controler opc.py are part 
 
 The rest of the scripts are patterns for the lamp. As you will soon discover I save up all my programming elegance and efficency for my work, and write this code to relax, so don't judge me ;)
 
-Feel fre to contribute with whatever idea you wish.
+Feel free to contribute with whatever idea you wish.
  
