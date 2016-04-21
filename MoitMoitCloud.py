@@ -21,10 +21,10 @@ while True: #Main loop
     for j in range(0,numLEDs):
         for i in range(0,Strips):
             pixels[i*MaxLED+j]= Color1
-            pixels[i*MaxLED+(j+MaxLED/2)%MaxLED]=Color2
+            pixels[(i*MaxLED+j+MaxLED/2)%(MaxLED*Strips)]=Color2
 
         client.put_pixels(pixels)
-        time.sleep(0.4)
+        time.sleep(0.8)
 
             
                     
