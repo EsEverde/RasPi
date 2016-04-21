@@ -17,14 +17,14 @@ Color1=[x*255 for x in Color1]
 Color2=[x*255 for x in Color2]
 
 while True: #Main loop
-    for i in range(0,Strips):
-        for j in range(0,(numLEDs+randint(0,4))%numLEDs):
-       
+    
+    for j in range(0,(numLEDs+randint(0,4))%numLEDs):
+        for i in range(0,Strips):
             pixels[i*MaxLED+j]= Color1
             pixels[i*MaxLED+(j+MaxLED/2)%MaxLED]=Color2
 
-    client.put_pixels(pixels)
-    time.sleep(0.4)
+        client.put_pixels(pixels)
+        time.sleep(0.4)
 
             
                     
