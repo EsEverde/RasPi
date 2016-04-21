@@ -1,5 +1,7 @@
 import sys
 import opc
+import time
+
 numLEDs =30 #Init LEDs
 MaxLED=64
 Strips=5

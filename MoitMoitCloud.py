@@ -18,7 +18,7 @@ Color2=[x*255 for x in Color2]
 
 while True: #Main loop
     
-    for j in range(0,(numLEDs+randint(0,4))%numLEDs):
+    for j in range(0,numLEDs):
         for i in range(0,Strips):
             pixels[i*MaxLED+j]= Color1
             pixels[i*MaxLED+(j+MaxLED/2)%MaxLED]=Color2
