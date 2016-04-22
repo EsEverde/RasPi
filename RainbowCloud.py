@@ -28,7 +28,7 @@ while True: #Main loop
         for i in range(0,Strips):
             for j in range(0,numLEDs):
                     
-                Color1=colorsys.hsv_to_rgb((RangeMin+k+(RangeMax-RangeMin)/numLEDs*j+(RangeMax-RangeMin)/Strips*i)%255/255,1,1)
+                Color1=colorsys.hsv_to_rgb((RangeMin+k+(RangeMax-RangeMin)/numLEDs*j+(RangeMax-RangeMin)/Strips*i)%255/255,0.5,1)
                 Color1=[x*255 for x in Color1]
 
                     #Color2=colorsys.hsv_to_rgb(1/numLEDs*(j+15)%numLEDs,1,1/10*k*2)
