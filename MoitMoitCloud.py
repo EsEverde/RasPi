@@ -11,8 +11,8 @@ MaxLED=64
 Strips=5
 client = opc.Client('localhost:7890')
 pixels=[ (255,250,240) ] * (MaxLED * Strips)
-Color1=colorsys.hsv_to_rgb(0.05,1,1)
-Color2=colorsys.hsv_to_rgb(0.1,1,1)
+Color1=colorsys.hsv_to_rgb(0,0,1)
+Color2=colorsys.hsv_to_rgb(0,1,1)
 Color1=[x*255 for x in Color1]
 Color2=[x*255 for x in Color2]
 
